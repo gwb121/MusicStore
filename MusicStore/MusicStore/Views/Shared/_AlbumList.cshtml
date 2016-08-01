@@ -1,0 +1,18 @@
+﻿@model IEnumerable< MusicStore.Models.Albums>
+<div class="col-md-4">
+    @foreach (var l in  Model)//参数方式传入数据的处理
+    {
+        <p>
+            <img src="@l.AlbumArtUrl" alt="@l.Title" />
+        </p>
+    }
+    @foreach (var l in (List<MusicStore.Models.Albums>)ViewBag.dbal)///viewbag方式的处理
+    {
+        <p>
+            <img src="@l.AlbumArtUrl" alt="@l.Title" />
+        </p>
+    }
+</div>
+
+
+
