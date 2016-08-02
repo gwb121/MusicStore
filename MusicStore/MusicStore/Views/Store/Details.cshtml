@@ -1,0 +1,50 @@
+﻿@model MusicStore.Models.Albums
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Albums</h4>
+    <hr />
+    <div><img src="@Model.AlbumArtUrl" /></div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Artists.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Artists.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Genres.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Genres.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("加入购物车", "AddCart","Cart", new { id = Model.AlbumId }) 
+</p>

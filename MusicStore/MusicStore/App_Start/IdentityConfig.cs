@@ -38,6 +38,7 @@ namespace MusicStore
         public ApplicationUserManager(IUserStore<ApplicationUser> store)
             : base(store)
         {
+
         }
 
         public static ApplicationUserManager Create(IdentityFactoryOptions<ApplicationUserManager> options, IOwinContext context) 
@@ -57,7 +58,7 @@ namespace MusicStore
                 RequireNonLetterOrDigit = true,
                 RequireDigit = true,
                 RequireLowercase = true,
-                RequireUppercase = true,
+                RequireUppercase = false,
             };
 
             // 配置用户锁定默认值
@@ -104,6 +105,25 @@ namespace MusicStore
         public static ApplicationSignInManager Create(IdentityFactoryOptions<ApplicationSignInManager> options, IOwinContext context)
         {
             return new ApplicationSignInManager(context.GetUserManager<ApplicationUserManager>(), context.Authentication);
+        }
+    }
+
+
+    public class ApplicationRoleManager : RoleManager<IdentityRole>
+    {
+        public ApplicationRoleManager(IRoleStore
+            <IdentityRole,string> store)
+            : base(store)
+        {}
+        public static ApplicationRoleManager Create(
+            IdentityFactoryOptions<ApplicationRoleManager>
+            options, 
+            IOwinContext context)
+        {
+            var manager = new ApplicationRoleManager(
+                new RoleStore<IdentityRole>(context.Get<
+                    ApplicationDbContext>()));
+            return manager;
         }
     }
 }

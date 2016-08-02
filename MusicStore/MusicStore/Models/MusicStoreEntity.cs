@@ -1,4 +1,4 @@
-namespace MusicStore.Models             ////链接到数据库的总类
+namespace MusicStore.Models
 {
     using System;
     using System.Data.Entity;
@@ -8,7 +8,7 @@ namespace MusicStore.Models             ////链接到数据库的总类
     public partial class MusicStoreEntity : DbContext
     {
         public MusicStoreEntity()
-            : base("name=MusicStoreEntity")         ////////     在webconfig中的链接名称
+            : base("name=MusicStoreEntity")
         {
         }
 

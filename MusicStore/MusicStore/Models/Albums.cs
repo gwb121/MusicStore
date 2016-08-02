@@ -16,22 +16,20 @@
         }
 
         [Key]
-        
         public int AlbumId { get; set; }
-        
+
         public int GenreId { get; set; }
 
         public int ArtistId { get; set; }
 
         [Required]
         [StringLength(160)]
-        
         public string Title { get; set; }
-        
+
+        [Display(Name ="价格")]
         public decimal Price { get; set; }
 
         [StringLength(1024)]
-        
         public string AlbumArtUrl { get; set; }
 
         public virtual Artists Artists { get; set; }
