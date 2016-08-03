@@ -1,0 +1,46 @@
+﻿@model IEnumerable<MusicStore.Models.OrderDetails>
+
+@{
+    ViewBag.Title = "订单内容列表";
+}
+
+<h2>订单内容列表</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Albums.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Orders.Username)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Quantity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UnitPrice)
+        </th>
+   
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Albums.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Orders.Username)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Quantity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UnitPrice)
+        </td>
+        
+    </tr>
+}
+
+</table>
+@Html.ActionLink("回到订单列表", "Index") 
