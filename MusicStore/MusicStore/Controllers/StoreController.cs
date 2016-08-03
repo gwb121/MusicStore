@@ -9,6 +9,7 @@ using X.PagedList;
 namespace MusicStore.Controllers
 {
 
+    [HandleError]
     public class StoreController : Controller
     {
         MusicStoreEntity db = new MusicStoreEntity();
